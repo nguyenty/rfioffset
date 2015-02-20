@@ -16,7 +16,7 @@ vntest <- vnf
 criteria <- 1
 model_th <- 1
 repeat{
-out_model <- fit_model(vnf, vntest, criteria, model_th)
+out_model <- fit_model(vnf, vntest, criteria, counts, model_th)
 #out_model <- s[[i]]
 assign(paste("ms_criteria", model_th, sep = "_" ),out_model)
 ms_val <- get(paste("ms_criteria", model_th, sep = "_" ))
