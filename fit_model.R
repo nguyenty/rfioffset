@@ -1,4 +1,4 @@
-fit_model <- function(vnf, vntest, criteria, counts, model_th){ # model_th <- 1
+fit_model <- function(vnf, vntest, criteria, counts, model_th, subdir){ # model_th <- 1
   y <- counts
   log.offset <- log(apply(y, 2, quantile, 0.75))
   list_out <- list_model(vnf, vntest)
@@ -12,7 +12,7 @@ fit_model <- function(vnf, vntest, criteria, counts, model_th){ # model_th <- 1
   k <- nrow(test.mat)
   name_model <- NULL 
   for (i in 1:k) name_model <- paste(name_model, row.names(test.mat)[i], sep =".")
-  model_dir <- paste(resultdir,"/", 
+  model_dir <- paste(resultdir,"/", subdir, "/",
                      colnames(res_sel)[criteria], 
                      "/Model",model_th,name_model, 
                      sep ="")
